@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Masyarakat;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class MasyarakatSeeder extends Seeder
 {
@@ -12,12 +13,13 @@ class MasyarakatSeeder extends Seeder
      */
     public function run(): void
     {
-    $data = [
-        'nik' => '3200123829',
-        'nama' => 'Masyarakat',
-        'username' => 'masyarakat1',
-        'password' => bcrypt('password'),
-        'telp' => '08889013488'
-    ];
+        $data = [
+            'nik' => '320017864147',
+            'nama' => 'masyarakat',
+            'username' => 'masyarakat1',
+            'password' => bcrypt('123456'),
+            'telp' => '0896145232425'
+        ];
+        Masyarakat::insert($data);
     }
 }

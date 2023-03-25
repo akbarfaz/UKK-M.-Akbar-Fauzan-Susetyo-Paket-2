@@ -4,6 +4,11 @@
 <main id="main" class="main">
     <section class="section">
                 <div class="card">
+                     @if (session('alert'))
+                      <div class="alert alert-success">
+                          {{ session('alert') }}
+                      </div>
+                  @endif
             <div class="card-body">
               <h5 class="card-title" style="color: green">Pengaduan Masyarakat</h5>
 
@@ -22,13 +27,6 @@
                 </div>
               </div>
 
-             <div class="row mb-3">
-                <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Laporan</label>
-                <div class="col-sm-10">
-                <input type="date" name="tgl_pengaduan" class="form-control">
-                </div>
-              </div>
-
               <div class="row mb-3">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Isi Laporan</label>
                 <div class="col-sm-10">
@@ -37,14 +35,21 @@
               </div>
 
               <div class="row mb-3">
+                <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Laporan</label>
+                <div class="col-sm-10">
+                <input type="date" name="tgl_pengaduan" class="form-control">
+                </div>
+              </div>
+
+              <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">File Foto</label>
                   <div class="col-sm-10">
-                  <input class="form-control" name="foto" type="file" id="formFile">
+                  <input class="form-control" name="foto" id="foto" type="file" id="formFile">
                   </div>
               </div>
 
                 <div class="row mb-3">
-                <label class="col-sm-2 col-form-label">Submit Button</label>
+                <label class="col-sm-2 col-form-label">Kirim</label>
                 <div class="col-sm-10">
                   <button type="submit" class="btn btn-success">Submit Form</button>
                 </div>

@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Tanggapan;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pengaduan extends Model
 {
     use HasFactory;
+
     protected $table = 'pengaduans';
     protected $primaryKey = 'id_pengaduan';
     protected $fillable = [
@@ -16,6 +18,12 @@ class Pengaduan extends Model
         'nik',
         'nama',
         'isi_laporan',
-        'foto'
+        'foto',
+        'status'
     ];
+
+    public function tanggapan()
+    {
+        return $this->hasOne(Tanggapan::class, 'id_pengaduan');
+    }
 }

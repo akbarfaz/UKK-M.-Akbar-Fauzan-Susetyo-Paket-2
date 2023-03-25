@@ -11,8 +11,14 @@ class Tanggapan extends Model
     protected $table = 'tanggapans';
     protected $fillable = ([
         'id_petugas',
+        'id_tanggapan',
         'id_pengaduan',
-        'tgl_pengaduan',
+        'tgl_tanggapan',
         'tanggapan'
     ]);
+
+    public function pengaduan()
+    {
+        return $this->belongsTo(pengaduan::class);
+    }
 }

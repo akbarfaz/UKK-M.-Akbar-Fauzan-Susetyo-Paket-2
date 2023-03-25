@@ -28,8 +28,8 @@ class PetugasSeeder extends Seeder
                 'telp' => '08889013488',
                 'level' => 'petugas'
             ]
+
             ];
             Petugas::insert($data);
-
     }
 }
