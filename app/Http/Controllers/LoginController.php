@@ -23,7 +23,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->route('pengaduan');
         } else {
-            return back()->with('error', 'Login Gagal, Coba Lagi');
+            return back()->with('alert', 'Login Gagal, Coba Lagi');
         }
     }
 

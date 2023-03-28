@@ -73,3 +73,6 @@ Route::get('/', function () {
     Route::get('tanggapan/show/{id_pengaduan}', [TanggapanController::class, 'show'])->name('tanggapan.show');
     Route::get('tanggapan/pdf/{id_pengaduan}', [TanggapanController::class, 'cetak_pdf'])->name('tanggapan.pdf');
     Route::get('tanggapan/cetak-pdf', [PengaduanController::class, 'cetak'])->name('tanggapan.cetakpdf');
+    Route::get('tanggapan/cetak-form', [TanggapanController::class, 'cetakForm'])->name('tanggapan.cetak');
+    Route::get('tanggapan/pdf-pertanggal/{tglawal}/{tglakhir}', [TanggapanController::class, 'cetakPDFPertanggal'])->name('tanggapan.pdftanggal');
+    Route::get('pengaduan/pdf', [PengaduanController::class, 'pdf'])->name('pengaduan.pdf');

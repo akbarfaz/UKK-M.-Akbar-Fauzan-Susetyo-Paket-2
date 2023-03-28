@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pengaduan;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,9 +11,33 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request,Pengaduan $model)
     {
-        return view('admin.dashboard.index');
+        $url = $request->fullUrl();
+        $status = $request->status;
+
+        if ($request->status && $request->status != 'all') {
+            $model = $model->where('status', $request->status);
+        }
+
+        $datas = $model->get();
+        $all = Pengaduan::count();
+        $pending = Pengaduan::where('status', 'Pending')->count();
+        $process = Pengaduan::where('status', 'Proses')->count();
+        $success = Pengaduan::where('status', 'Selesai')->count();
+
+        if ($request->pdf == true) {
+            return $this->pdf($items);
+        }
+
+        return view('admin.dashboard.index', [
+            'url' => $url,
+            'all' => $all,
+            'datas' => $datas,
+            'pending' => $pending,
+            'proses' => $process,
+            'success' => $success
+        ]);
     }
 
     /**

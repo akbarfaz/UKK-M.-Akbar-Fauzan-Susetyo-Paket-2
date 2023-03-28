@@ -30,8 +30,8 @@
                 </div>
 
                 <div class="">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{route('petugas.index')}}" class="btn btn-success">Back</a>
+                <button type="submit" class="btn btn-success">Submit</button>
+                <a href="{{route('petugas.index')}}" class="btn btn-danger">Back</a>
                 </div>
               </form>
             </div>

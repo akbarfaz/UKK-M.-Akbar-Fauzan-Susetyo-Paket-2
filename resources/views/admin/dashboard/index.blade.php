@@ -2,127 +2,199 @@
 
 @section('content')
 <main id="main" class="main">
+    <section class="section">
+        <div class="pagetitle">
+            <h1 style="color:green">Dashboard</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" style="color:goldenrod">Home</a></li>
+                    <li class="breadcrumb-item active" style="color:green">Dashboard</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
 
-    <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    {{-- <section class="section dashboard">
       <div class="row">
-
-        <!-- Left side columns -->
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <div class="row">
 
-            <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card sales-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Sales <span>| Today</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-cart"></i>
+             <div class="col-sm-3 mt-5">
+                <a href="{{  url()->current() . '?status=all' }}">
+                    <div class="card info-card sales-card">
+                        <div class="card-body mt-3">
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-megaphone" style="color:goldenrod"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h5 class="card-title" style="color:green">Jumlah Pengaduan</h5>
+                                    <span class="text-success small pt-1 fw-bold">{{  $all }}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ps-3">
-                      <h6>145</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Sales Card -->
-
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>$3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-              <div class="card info-card customers-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Customers <span>| This Year</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>1244</h6>
-                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
+                </a>
             </div>
 
-          </div>
+            <div class="col-sm-3 mt-5">
+                <a href="{{  url()->current() . '?status=pending' }}">
+                    <div class="card info-card sales-card">
+                        <div class="card-body mt-3">
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-shield-fill-exclamation" style="color:goldenrod"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h5 class="card-title" style="color:green">Belum Diproses</h5>
+                                    <span class="text-success small pt-1 fw-bold">{{  $pending }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-3 mt-5">
+                <a href="{{  url()->current() . '?status=proses' }}">
+                    <div class="card info-card sales-card">
+                        <div class="card-body mt-3">
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-shuffle" style="color:goldenrod"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h5 class="card-title" style="color:green">Sedang Diproses</h5>
+                                    <span class="text-success small pt-1 fw-bold">{{  $proses }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+              <div class="col-sm-3 mt-5">
+                <a href="{{  url()->current() . '?status=selesai' }}">
+                <div class="card info-card sales-card">
+                  <div class="card-body mt-3">
+                    <div class="d-flex align-items-center">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-shield-fill-check" style="color:goldenrod"></i>
+                      </div>
+                      <div class="ps-3">
+                        <h5 class="card-title" style="color:green">Selesai</h5>
+                        <span class="text-success small pt-1 fw-bold">{{  $success }}</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
         </div>
       </div>
-    </section> --}}
+    </div>
 
-  </main>
+
+
+
+      {{-- TABLE --}}
+      <div class="card">
+        @if (session('alert'))
+        <div class="alert alert-success">
+          {{ session('alert') }}
+        </div>
+        @endif
+
+        <div class="card-body m-3">
+            <a href="{{ route('pengaduan.pdf') }}" class="btn btn-warning" target="_blank">CETAK PDF</a>
+          <h5 class="card-title" style="color: green">Dumas <span style="color:goldenrod"> Caringin</span></h5>
+
+
+          <table class="table table-borderless datatable">
+            <thead>
+              <tr>
+                  <tr>
+                      <th scope="col">No</th>
+                <th scope="col">NIK</th>
+                <th scope="col">Nama Pelapor</th>
+                <th scope="col">Isi Laporan</th>
+                <th scope="col">Tanggal Pengaduan</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Status</th>
+                {{-- <th scope="col">Action</th> --}}
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($datas as $item)
+
+              <tr>
+                  <th scope="row">{{ $loop->iteration }}</th>
+                  <td>{{ $item->nik }}</td>
+                  <td>{{ $item->nama }}</td>
+                  <td>{{ $item->isi_laporan }}</td>
+                  <td>{{ $item->tgl_pengaduan }}</td>
+
+                  <td>
+                    @if ($item->foto)
+                    <img style="width:150px; height:100px; ofervlow:hidden;"
+                        src="{{ asset('storage/' . $item->foto) }}" alt=" ">
+                    @else
+                    <img style="width:50px; height:50px; ofervlow:hidden;"
+                    src="{{ asset('img/ppnull.jpg') }}" alt="">
+                    @endif
+                 </td>
+
+                  <td>
+                    @if ($item->status == 'pending')
+                    <span class="badge bg-danger">{{ ($item->status == 'pending') ? 'Belum Di Proses' : ''  }}</span>
+                    @endif
+                    @if ($item->status == 'proses')
+                    <span class="badge bg-primary">{{ ($item->status == 'proses') ? 'Proses' : ''  }}</span>
+                    @endif
+                    @if ($item->status == 'selesai')
+                    <span class="badge bg-success">{{ ($item->status == 'selesai') ? 'Selesai' : ''  }}</span>
+                    @endif
+                  </td>
+
+                  {{-- <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default">Action</button>
+                        <button type="button" class="btn btn-default dropdown-toggle dropdown-icon"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
+                    <div class="dropdown-menu" role="menu" style="">
+
+                        @if ($item->status == 'proses')
+                          <a class="dropdown-item" href="{{ route('tanggapan.create', $item->id_pengaduan) }}">Tanggapi</a>
+                        @endif
+
+                        @if ($item->status == 'selesai')
+                        <a class="dropdown-item" href="{{ route('tanggapan.show', $item->id_pengaduan) }}">Show</a>
+                        @endif
+
+                        @if ($item->status == 'selesai'  && Auth::guard('admin')->user()->level == 'admin')
+                        <a class="dropdown-item" href="{{ route('tanggapan.pdf', $item->id_pengaduan) }}">Cetak Pdf</a>
+                        @endif
+
+                        @if ($item->status == 'pending')
+                          <form action="{{ route('pengaduan.status', $item->id_pengaduan) }}">
+                            @csrf
+                            <button type="submit" class="dropdown-item">Verifikasi</button>
+                          </form>
+                        @endif
+
+                      <form action="{{ route('pengaduan.destroy', $item->id_pengaduan) }}">
+                          @csrf
+                          @method('delete')
+                          <button type="submit" class="dropdown-item">Delete</button>
+                      </form>
+                  </div>
+                </div>
+              </td> --}}
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+@include('sweetalert::alert')
+</section>
+</main>
 @endsection

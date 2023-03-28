@@ -4,11 +4,6 @@
 <main id="main" class="main">
     <section class="section">
                 <div class="card">
-                     @if (session('alert'))
-                      <div class="alert alert-success">
-                          {{ session('alert') }}
-                      </div>
-                  @endif
             <div class="card-body">
               <h5 class="card-title" style="color: green">Pengaduan Masyarakat</h5>
 
@@ -51,12 +46,12 @@
                 <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">Kirim</label>
                 <div class="col-sm-10">
-                  <button type="submit" class="btn btn-success">Submit Form</button>
+                  <button type="submit" class="btn btn-success">Submit</button>
                 </div>
               </div>
               </form>
             </div>
           </div>
-
+          @include('sweetalert::alert')
     </section>
 </main>

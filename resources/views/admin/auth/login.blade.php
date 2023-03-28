@@ -87,7 +87,7 @@
                       <button class="btn btn-success w-100" type="submit">Login</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Tidak punya Akun? <a href="{{ route('admin.register') }}" style="color: green">Register</a></p>
+                      {{-- <p class="small mb-0">Tidak punya Akun? <a href="{{ route('admin.register') }}" style="color: green">Register</a></p> --}}
                     </div>
                   </form>
 

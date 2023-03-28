@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama')->nullable();
             $table->text('isi_laporan')->nullable();
             $table->string('foto', '255')->nullable();
-            $table->enum('status', ['0', 'proses', 'selesai'])->nullable()->default('0');
+            $table->enum('status', ['pending', 'proses', 'selesai'])->nullable()->default('pending');
             $table->timestamps();
         });
     }

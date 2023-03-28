@@ -5,9 +5,11 @@
   <div class="col-12">
       <div class="card recent-sales overflow-auto">
         <div class="card-body mt-3">
+            @if(Auth::guard('admin')->user()->level == 'admin')
           <a href="{{ route('tanggapan.cetakpdf') }}" class="btn btn-warning" target="_blank">CETAK PDF</a>
-          {{-- <a href="{{ route('tanggapan.cetak') }}" class="btn btn-info" target="_blank">Cetak PDF Tanggal</a> --}}
-          <h5 class="card-title" style="color:goldenrod">Pengaduan <span>Masyarakat</span></h5>
+          <a href="{{ route('tanggapan.cetak') }}" class="btn btn-info" target="_blank">Cetak PDF Tanggal</a>
+          @endif
+          <h5 class="card-title" style="color:green">Pengaduan <span style="color:goldenrod">Masyarakat</span></h5>
 
           <table class="table table-borderless datatable">
             <thead>
@@ -35,7 +37,7 @@
 
                   <td>
                     @if ($item->foto)
-                    <img style="width:60px; height:50px; ofervlow:hidden;"
+                    <img style="width:150px; height:100px; ofervlow:hidden;"
                         src="{{ asset('storage/' . $item->foto) }}" alt=" ">
                     @else
                     <img style="width:50px; height:50px; ofervlow:hidden;"
@@ -44,8 +46,8 @@
                  </td>
 
                   <td>
-                    @if ($item->status == '0')
-                    <span class="badge bg-danger">{{ ($item->status == 0) ? 'Belum Di Proses' : ''  }}</span>
+                    @if ($item->status == 'pending')
+                    <span class="badge bg-danger">{{ ($item->status == 'pending') ? 'Belum Di Proses' : ''  }}</span>
                     @endif
                     @if ($item->status == 'proses')
                     <span class="badge bg-primary">{{ ($item->status == 'proses') ? 'Proses' : ''  }}</span>
@@ -75,7 +77,7 @@
                         <a class="dropdown-item" href="{{ route('tanggapan.pdf', $item->id_pengaduan) }}">Cetak Pdf</a>
                         @endif
 
-                        @if ($item->status == 0)
+                        @if ($item->status == 'pending')
                           <form action="{{ route('pengaduan.status', $item->id_pengaduan) }}">
                             @csrf
                             <button type="submit" class="dropdown-item">Verifikasi</button>
@@ -88,19 +90,14 @@
                           <button type="submit" class="dropdown-item">Delete</button>
                       </form>
                   </div>
-              </div>
+                </div>
               </td>
-
-
-          </tr>
-          @endforeach
-
-            </tbody>
-          </table>
-
-        </div>
-
-      </div>
-    </div>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
 </main>
 @endsection

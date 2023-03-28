@@ -12,7 +12,7 @@
                       </div>
                   @endif
         <div class="card-body">
-          <h5 class="card-title" style="color:goldenrod">Pengaduan <span> Masyarakat</span></h5>
+          <h5 class="card-title" style="color:goldenrod">Pengaduan <span style="color:green"> Masyarakat</span></h5>
 
           <table class="table table-borderless">
             <thead>
@@ -37,7 +37,7 @@
                   <td>{{ $item->tgl_pengaduan }}</td>
                   <td>
                       @if ($item->foto)
-                    <img style="width:50px; height:50px; ofervlow:hidden;" src="{{ asset('storage/' . $item->foto) }}" alt=" ">
+                    <img style="width:150px; height:100px; ofervlow:hidden;" src="{{ asset('storage/' . $item->foto) }}" alt=" ">
                     @else
                     <img style="width:50px; height:50px; ofervlow:hidden;" src="{{ asset('assets/img/card.jpg') }}" alt="">
                     @endif

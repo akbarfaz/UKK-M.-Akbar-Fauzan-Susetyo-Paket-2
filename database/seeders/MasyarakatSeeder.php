@@ -15,8 +15,8 @@ class MasyarakatSeeder extends Seeder
     {
         $data = [
             'nik' => '320017864147',
-            'nama' => 'masyarakat',
-            'username' => 'masyarakat1',
+            'nama' => 'Akbar',
+            'username' => 'akbar',
             'password' => bcrypt('123456'),
             'telp' => '0896145232425'
         ];

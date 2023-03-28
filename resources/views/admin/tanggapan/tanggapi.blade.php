@@ -5,6 +5,13 @@
   <section class="section">
         <div class="card">
             <div class="card-body">
+                @if (session('alert'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{ session('alert') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            @endif
+
               <h5 class="card-title" style="color:green">Data Tanggapan</h5>
 
               <form class="row g-3" action="{{ route('tanggapan.store', $item->id_pengaduan)}}" method="POST" enctype="multipart/form-data">
@@ -25,13 +32,13 @@
                   </div>
 
                   <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label">Submit Button</label>
+                    <label class="col-sm-2 col-form-label">Kirim</label>
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Submit Form</button>
+                      <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
               </form>
             </div>
           </div>
-          </section>
-</main>
-@endsection
+        </section>
+    </main>
+    @endsection

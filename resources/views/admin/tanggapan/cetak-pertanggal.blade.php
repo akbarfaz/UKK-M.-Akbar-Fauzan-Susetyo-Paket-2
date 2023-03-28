@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laporan Pengaduan Masyarakat Caringin</title>
+	<title>Laporan Pengaduan Masyarakat</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -25,7 +25,7 @@ th {
 }
 	</style>
 	<center>
-		<h5>Laporan Pengaduan Masyarakat Caringin</h4>
+		<h5>Laporan Pengaduan Masyarakat Pertanggal</h4>
 	</center>
 
 	<table class='table table-bordered'>
@@ -42,7 +42,7 @@ th {
 		</thead>
 		<tbody>
 			@php $i=1 @endphp
-			@foreach($data as $item)
+			@foreach($cetakPertanggal as $item)
 			<tr>
 				<td>{{ $i++ }}</td>
 				<td>{{$item->nik ?? ''}}</td>
