@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         if (Auth::guard('admin')->attempt($login)) {
             $request->session()->regenerate();
-            return redirect()->route('dashboard.index');
+            return redirect()->route('dashboard');
         } else {
             return back()->with('error', 'Login Gagal, Coba Lagi');
         }

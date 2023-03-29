@@ -107,7 +107,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link" style="color: green" href="{{ route('dashboard.index') }}">
+        <a class="nav-link" style="color: green" href="{{ route('dashboard') }}">
           <i class="bi bi-grid" style="color:green"></i>
           <span>Dashboard</span>
         </a>

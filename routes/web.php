@@ -24,6 +24,8 @@ use App\Http\Controllers\Admin\RegisterController as AdminRegisterController;
 Route::get('/', function () {
     return view('welcome');
 });
+    // Dashboard
+    Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
 
     // Login
     Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -47,7 +49,7 @@ Route::get('/', function () {
 
 
     // Admin Dashboard
-    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    // Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // Admin Login
     Route::get('admin/login', [AdminLoginController::class, 'index'])->name('admin.login');
