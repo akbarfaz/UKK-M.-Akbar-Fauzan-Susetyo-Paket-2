@@ -24,7 +24,7 @@ class PengaduanController extends Controller
         $success = Pengaduan::where('status', 'Selesai')->count();
 
         if ($request->pdf == true) {
-            return $this->pdf($items);
+            return $this->pdf($datas);
         }
 
         return view('masyarakat.pengaduan.index', [
@@ -80,12 +80,11 @@ class PengaduanController extends Controller
     {
         $data = Pengaduan::all();
     	$pdf = PDF::loadview('admin.tanggapan.cetak-pdf', compact('data'))->setOptions(['enable_php', true, 'dpi' => 150, 'defaultFont' => 'sans-serif']);
-        return $pdf->download('PengaduanMasyarakat.pdf');
+        return $pdf->download('Pengaduan Masyarakat.pdf');
     }
 
-    public function pdf($items){
-        $pdf = PDF::loadview('masyarakat.pengaduan.alldata',['items'=>$items])->setpaper('a4', 'landscape');
-        $name = 'petugas-laporan-pengaduan-'.Str::random(5);
-    	return $pdf->stream($name.'.pdf');
+    public function pdf($datas){
+        $pdf = PDF::loadview('masyarakat.pengaduan.alldata',['datas'=>$datas])->setOptions(['enable_php', true, 'dpi' => 150, 'defaultFont' => 'sans-serif']);
+    	return $pdf->download('Pengaduan Masyarakat.pdf');
     }
 }

@@ -39,7 +39,7 @@ class TanggapanController extends Controller
         $pengaduan['status'] = 'selesai';
         $data->update($pengaduan);
 
-        return redirect()->route('tanggapan')->with('alert', 'Berhasil Menanggapi');
+        return redirect()->route('tanggapan')->with('success', 'Berhasil Menanggapi');
     }
 
     public function show($id_pengaduan)
@@ -61,11 +61,18 @@ class TanggapanController extends Controller
         return redirect()->route('tanggapan');
     }
 
+    public function destroy($id)
+{
+    Pengaduan::find($id)->delete();
+    return redirect()->route('tanggapan')
+                    ->with('success','Tanggapan deleted successfully');
+}
+
     public function cetak_pdf($id_pengaduan)
     {
     	$data = Pengaduan::with('tanggapan')->where('id_pengaduan', $id_pengaduan)->get();
     	$pdf = PDF::loadview('admin.tanggapan.cetak-pdf', compact('data'))->setOptions(['enable_php', true, 'dpi' => 150, 'defaultFont' => 'sans-serif']);
-        return $pdf->download('PengaduanMasyarakat.pdf');
+        return $pdf->download('Pengaduan Masyarakat.pdf');
     }
 
      public function cetakForm()
@@ -78,6 +85,6 @@ class TanggapanController extends Controller
         // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
         $cetakPertanggal = Pengaduan::with('tanggapan')->whereBetween('tgl_pengaduan', [$tglawal, $tglakhir])->get();
         $pdf = PDF::loadview('admin.tanggapan.cetak-pertanggal', compact('cetakPertanggal'))->setOptions(['enable_php', true, 'dpi' => 150, 'defaultFont' => 'sans-serif']);
-        return $pdf->download('PengaduanMasyarakat.pdf');
+        return $pdf->download('Pengaduan Masyarakat.pdf');
      }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class DashboardController extends Controller
 {
@@ -27,7 +28,7 @@ class DashboardController extends Controller
         $success = Pengaduan::where('status', 'Selesai')->count();
 
         if ($request->pdf == true) {
-            return $this->pdf($items);
+            return $this->pdf($datas);
         }
 
         return view('admin.dashboard.index', [
@@ -86,5 +87,11 @@ class DashboardController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function pdf($datas)
+    {
+        $pdf = PDF::loadview('masyarakat.pengaduan.alldata',['datas'=>$datas])->setOptions(['enable_php', true, 'dpi' => 150, 'defaultFont' => 'sans-serif']);
+    	return $pdf->download('Pengaduan Masyarakat.pdf');
     }
 }

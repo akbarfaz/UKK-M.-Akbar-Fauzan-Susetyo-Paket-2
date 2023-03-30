@@ -38,7 +38,7 @@
                       data-bs-toggle="dropdown" aria-expanded="false">
                   </button>
                   <div class="dropdown-menu" role="menu" style="">
-                        {{-- <a href="{{ route('petugas.edit', $item->id)}}" class="dropdown-item">Edit</a> --}}
+                        {{--  <a href="{{ route('petugas.edit', $item->id)}}" class="dropdown-item">Edit</a>  --}}
                       <form action="{{ route('petugas.destroy', $item->id)}}">
                           @csrf
                           @method('delete')

@@ -23,6 +23,7 @@ class PetugasController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
+            // 'id_petugas' => 'required',
             'nama_petugas' => 'required',
             'username' => 'required',
             'password' => 'required',
@@ -32,7 +33,7 @@ class PetugasController extends Controller
         $validate['password']= Hash::make($request['password']);
         $validate['level'] = 'petugas';
         Petugas::create($validate);
-        return redirect()->route('petugas.index');
+        return redirect()->route('petugas.index')->with('success', 'Pengaduan Berhasil!');
     }
 
     public function edit()

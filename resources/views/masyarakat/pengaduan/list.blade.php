@@ -12,7 +12,7 @@
                       </div>
                   @endif
         <div class="card-body">
-          <h5 class="card-title" style="color:goldenrod">Pengaduan <span style="color:green"> Masyarakat</span></h5>
+          <h5 class="card-title" style="color:goldenrod">List <span style="color:green"> Pengaduan</span></h5>
 
           <table class="table table-borderless">
             <thead>
@@ -42,8 +42,17 @@
                     <img style="width:50px; height:50px; ofervlow:hidden;" src="{{ asset('assets/img/card.jpg') }}" alt="">
                     @endif
                   </td>
-                  <td>{{ $item->status }}</td>
-                 <td>
+                  <td>
+                    @if ($item->status == 'pending')
+                    <span class="badge bg-danger">{{ ($item->status == 'pending') ? 'Belum Di Proses' : ''  }}</span>
+                    @endif
+                    @if ($item->status == 'proses')
+                    <span class="badge bg-primary">{{ ($item->status == 'proses') ? 'Proses' : ''  }}</span>
+                    @endif
+                    @if ($item->status == 'selesai')
+                    <span class="badge bg-success">{{ ($item->status == 'selesai') ? 'Selesai' : ''  }}</span>
+                    @endif
+                  </td>                 <td>
                     <div class="btn-group">
                       <button type="button" class="btn btn-default">Action</button>
                         <button type="button" class="btn btn-default dropdown-toggle dropdown-icon"

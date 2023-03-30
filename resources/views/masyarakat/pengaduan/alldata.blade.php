@@ -42,7 +42,7 @@ th {
 		</thead>
 		<tbody>
 			@php $i=1 @endphp
-			@foreach($data as $item)
+			@foreach($datas as $item)
 			<tr>
 				<td>{{ $i++ }}</td>
 				<td>{{$item->nik ?? ''}}</td>

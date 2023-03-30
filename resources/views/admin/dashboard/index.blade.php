@@ -104,7 +104,7 @@
         @endif
 
         <div class="card-body m-3">
-            <a href="{{ route('pengaduan.pdf') }}" class="btn btn-warning" target="_blank">CETAK PDF</a>
+            <a href="{{ request()->status ? $url. "&pdf=true" : "?pdf=true" }}" class="btn btn-warning">CETAK PDF</a>
           <h5 class="card-title" style="color: green">Dumas <span style="color:goldenrod"> Caringin</span></h5>
 
 

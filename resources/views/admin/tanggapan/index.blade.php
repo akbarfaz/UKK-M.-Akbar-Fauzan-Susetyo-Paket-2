@@ -5,10 +5,10 @@
   <div class="col-12">
       <div class="card recent-sales overflow-auto">
         <div class="card-body mt-3">
-            @if(Auth::guard('admin')->user()->level == 'admin')
+            {{--  @if(Auth::guard('admin')->user()->level == 'admin')
           <a href="{{ route('tanggapan.cetakpdf') }}" class="btn btn-warning" target="_blank">CETAK PDF</a>
-          <a href="{{ route('tanggapan.cetak') }}" class="btn btn-info" target="_blank">Cetak PDF Tanggal</a>
-          @endif
+          <a href="{{ route('tanggapan.cetak') }}" class="btn btn-info" target="_blank">CETAK PDF TANGGAL</a>
+          @endif  --}}
           <h5 class="card-title" style="color:green">Pengaduan <span style="color:goldenrod">Masyarakat</span></h5>
 
           <table class="table table-borderless datatable">
@@ -87,17 +87,16 @@
                       <form action="{{ route('pengaduan.destroy', $item->id_pengaduan) }}">
                           @csrf
                           @method('delete')
-                          <button type="submit" class="dropdown-item">Delete</button>
+                          <button type="submit" onclick="return confirm('Apakah Anda Yakin?')" class="dropdown-item">Delete</button>
                       </form>
-                  </div>
                 </div>
-              </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table></div>
 </div>
 </div>
-</div>
+@include('sweetalert::alert')
 </main>
 @endsection

@@ -32,8 +32,8 @@
                 </div>
 
                 <div class="text-center">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="{{route('petugas.index')}}" class="btn btn-success">Kembali</a>
+                <button type="submit" class="btn btn-success">Simpan</button>
+                <a href="{{route('petugas.index')}}" class="btn btn-danger">Kembali</a>
                 </div>
               </form><!-- Vertical Form -->
             </div>

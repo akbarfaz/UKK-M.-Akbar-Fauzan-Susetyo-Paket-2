@@ -12,6 +12,7 @@
     <h6 class="mt-2" style="font-weight: bold">Nama Pelapor : {{ $item->nama}}</h6>
     <h6 style="font-weight: bold">Tanggal : {{ $item->tgl_pengaduan}}</h6>
     <h6 class="mt-2" style="font-weight: bold">Status : {{ $item->status}}</h6>
+    {{--  <h6 class="mt-2" style="font-weight: bold">Nama yang menanggapi : {{ Auth::guard('admin')->user()->username }}</h6>  --}}
     {{-- <h6 class="mt-2" style="font-weight: bold">Isi Laporan : {{ $item->isi_laporan }}</h6> --}}
 @endforeach
       </div>

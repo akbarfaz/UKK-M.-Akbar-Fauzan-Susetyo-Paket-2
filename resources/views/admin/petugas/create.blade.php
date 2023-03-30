@@ -29,13 +29,14 @@
                   <input type="number" class="form-control" name="telp" class="form-control" placeholder="Masukan No Telepon">
                 </div>
 
-                <div class="">
-                <button type="submit" class="btn btn-success">Submit</button>
-                <a href="{{route('petugas.index')}}" class="btn btn-danger">Back</a>
+                <div class="col-12">
+                <button type="submit" class="btn btn-success">Kirim</button>
+                <a href="{{route('petugas.index')}}" class="btn btn-danger">Kembali</a>
                 </div>
               </form>
             </div>
           </div>
+          @include('sweetalert::alert')
           </section>
 </main>
 @endsection
